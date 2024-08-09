@@ -31,6 +31,8 @@ export function isHigher () {   //
 such that depending on if that is true, the program will continue to loop through the iterations or it will stop, depending on if 
 the user guessed correctly whether the next card is higher or lower.
 
+Since my framework code doesn't quite work, even if your function is correct, the test will fail. Sorry 😞.
+
 
 
 ## Initialisation & Installation
