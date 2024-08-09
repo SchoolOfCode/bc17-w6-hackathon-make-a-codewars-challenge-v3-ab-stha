@@ -66,7 +66,10 @@ Since my framework code doesn't quite work, even if your function is correct, th
             still empty, keep looping.
         - If picked N then stop loop.
 
-### 2- Decide which function to leave unfinished to be used in kata
+## Reflections
+
+ - I would probably have spent more time in the ideation phase. This is because I thought of Higher and Lower and immediately stuck with it because of the idea. Had I considered the time constraint, I would have picked something simpler.
+ - Additionally, I think that I should have considered MVPS. For this week (being QA and testing), I did not have any deliverable MVPS as I was not able to create a working test for the kata.
 
 
 
