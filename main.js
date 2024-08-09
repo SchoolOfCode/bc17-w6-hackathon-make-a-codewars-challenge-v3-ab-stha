@@ -1,3 +1,3 @@
-export function isHigher () {   // 
+export function isHigher (para1, para2) {   // 
     // Code block
 };

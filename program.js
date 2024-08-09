@@ -15,6 +15,7 @@ let diamonds = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 // Create an array of 4 suits
 const deck = [clubs, spades, hearts, diamonds];
 let isHigher = true;
+let previousCard = null;
 
 export async function wholeProgram() {
     // Log a random index for the deck array which returns a random number between 1-4
@@ -81,7 +82,7 @@ export async function wholeProgram() {
             resolve(false);
             // if user picked higher
           } else if (userInput.toUpperCase() === 'H'){
-            isHigher(); // should return true for this to resolve
+            isHigher(randomCard, previousCard); // should return true for this to resolve
             resolve(clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0 || (isHigher = true)); // only resolves if isHigher returns true
           } else { // if user has picked lower
             // Continue if any suits have cards left and if isHigher is false
@@ -89,5 +90,9 @@ export async function wholeProgram() {
             resolve(clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0 || (isHigher = false));
           }
         });
+      }) .then(() => {
+        // Update previousCard after user input is processed
+        previousCard = randomCard;
+        console.log("Previous card is now: ", previousCard);
       });
     };
