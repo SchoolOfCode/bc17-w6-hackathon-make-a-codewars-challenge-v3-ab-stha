@@ -1,6 +1,3 @@
-Put your plan, story, and any supporting material here, you could use the help of a readme markdown generator such as [readme.so](https://readme.so/)
-
-
 # SoC Bc17 W6 Hackathon - Building a Coding Kata - ab-stha
 
 Description: To build a function that determines whether the next card is higher in value or lower. And if the user guesses correct, to keep going. If the user guesses incorrectly, to stop the code.
