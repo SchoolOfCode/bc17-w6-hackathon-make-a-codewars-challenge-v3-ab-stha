@@ -42,6 +42,7 @@ Since my framework code doesn't quite work, even if your function is correct, th
             it will break.
         4. this is because you need to define the function isHigher()
             located in the main.js file.
+        5. remember to check if isHigher() is imported to main.js!
 
 
 ## My plan - Higher or lower game
