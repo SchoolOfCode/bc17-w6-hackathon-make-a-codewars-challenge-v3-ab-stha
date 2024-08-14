@@ -1,5 +1,7 @@
 import readline from 'readline';
+
 //import isHigher from './main.js';
+import isHigher from './main.js';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -14,7 +16,7 @@ let diamonds = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
 // Create an array of 4 suits
 const deck = [clubs, spades, hearts, diamonds];
-let isHigher = true;
+// let isHigher = true;
 let previousCard = null;
 
 export async function wholeProgram() {
@@ -30,7 +32,6 @@ export async function wholeProgram() {
     switch(randomIndex) {
         case 0:
             console.log("suit picked: clubs");
-            console.log("randomSuit array: ", randomSuit);
 
             console.log("Random card generated: ", randomCard + " of clubs")
     
@@ -40,17 +41,17 @@ export async function wholeProgram() {
     
         case 1:
             console.log("suit picked: spades");
-            console.log("randomSuit array: ", randomSuit);
 
             console.log("Random card generated: ", randomCard + " of spades")
     
             spades = spades.filter(item => item !==randomCard);
             console.log("New spades array is: ", spades);
+            console.log("randomNumber: ", randomCard);
+
           break;
     
           case 2:
             console.log("suit picked: hearts");
-            console.log("randomSuit array: ", randomSuit);
             
             console.log("Random card generated: ", randomCard + " of hearts")
     
@@ -60,7 +61,6 @@ export async function wholeProgram() {
     
           case 3:
             console.log("suit picked: diamonds");
-            console.log("randomSuit array: ", randomSuit);
 
             console.log("Random card generated: ", randomCard + " of diamonds")
     
@@ -83,16 +83,29 @@ export async function wholeProgram() {
             // if user picked higher
           } else if (userInput.toUpperCase() === 'H'){
             isHigher(randomCard, previousCard); // should return true for this to resolve
-            resolve(clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0 || (isHigher = true)); // only resolves if isHigher returns true
-          } else { // if user has picked lower
+            console.log({'random card' : randomCard, 'previous card' : previousCard});
+            console.log(isHigher(randomCard, previousCard));
+            resolve((clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0) && (isHigher() === true)); // only resolves if isHigher returns true
+            console.log('resolve worked at line 89!')
+          } else if (userInput.toUpperCase() === 'L'){ // if user has picked lower
             // Continue if any suits have cards left and if isHigher is false
-            isHigher(); // should return false for this to to resolve
-            resolve(clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0 || (isHigher = false));
+            isHigher(randomCard, previousCard); // should return false for this to to resolve
+            console.log({'random card' : randomCard, 'previous card' : previousCard});
+            console.log(isHigher(randomCard, previousCard));
+            resolve((clubs.length > 0 || spades.length > 0 || hearts.length > 0 || diamonds.length > 0) && (isHigher() === false));
+            console.log('resolve worked at line 95!');
+          } else {
+            console.log('you can either write h, l, or n');
           }
         });
       }) .then(() => {
+        // Log the previous card
+        console.log("previous card was: ", previousCard);
+        // Log the randomCard just generated
+        console.log("random card just generated now is: ", randomCard);
+
         // Update previousCard after user input is processed
         previousCard = randomCard;
-        console.log("Previous card is now: ", previousCard);
+        console.log("Previous card (for next iteration) is now: ", previousCard);
       });
     };

@@ -4,7 +4,7 @@ import { wholeProgram } from "./program.js";
 async function main () {
     let continueLoop = true
     while (continueLoop) {
-      continueLoop = await wholeProgram();
+      await wholeProgram();
     }
   };
   
